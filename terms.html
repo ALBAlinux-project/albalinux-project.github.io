@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>利用規約 ・ Norrsken Linux</title>
+<style>
+  /* Myou+2: Material 2 と 3 の中間デザイン */
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #1f1f1f;
+    --muted: #5f6368;
+    --accent: #0b57d0;
+    --accent-bg: #d3e3fd;
+    --accent-text: #041e49;
+    --accent-hover: #c2d7fb;
+    --header-bg: rgba(255,255,255,0.85);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121417;
+      --card: #1d2125;
+      --text: #e6e8eb;
+      --muted: #9aa0a6;
+      --accent: #8ab4f8;
+      --accent-bg: #2a3f5f;
+      --accent-text: #d3e3fd;
+      --accent-hover: #34507a;
+      --header-bg: rgba(29,33,37,0.85);
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --card: #1d2125;
+    --text: #e6e8eb;
+    --muted: #9aa0a6;
+    --accent: #8ab4f8;
+    --accent-bg: #2a3f5f;
+    --accent-text: #d3e3fd;
+    --accent-hover: #34507a;
+    --header-bg: rgba(29,33,37,0.85);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-1);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand { font-size: 18px; font-weight: 600; }
+  .brand span { color: var(--accent); }
+  nav a {
+    color: var(--accent-text);
+    background: var(--accent-bg);
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  nav a:hover { background: var(--accent-hover); }
+
+  main {
+    max-width: 760px;
+    margin: 48px auto;
+    padding: 0 24px;
+  }
+  h1 { font-size: 30px; font-weight: 600; margin: 0 0 8px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 32px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--shadow-1);
+    margin-bottom: 24px;
+  }
+  h2 { font-size: 18px; font-weight: 600; color: var(--accent); margin: 0 0 12px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); }
+  .notice {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 40px 24px 32px;
+  }
+
+  @media (max-width: 520px) {
+    header { padding: 14px 20px; }
+    .card { padding: 24px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Aurore <span>・ Norrsken Linux</span></div>
+  <nav><a href="index.html">トップへ</a></nav>
+</header>
+
+<main>
+  <h1>利用規約</h1>
+  <p class="updated">最終更新: 2026 年 11 月 27 日</p>
+
+  <div class="notice">
+    この文書は、Norrsken Linux および Aurore 関連ソフトウェアの利用条件をまとめたものです。法的な助言ではありません。
+  </div>
+
+  <section class="card">
+    <h2>第 1 条（対象）</h2>
+    <p>この規約は、Norrsken Linux（以下「本ディストリビューション」）と、ALBA Linux Project が GitHub で公開している Aurore、Aurore At a Glance、Aurore Player（以下「本ソフトウェア」）に適用されます。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 2 条（ライセンス）</h2>
+    <p>本ソフトウェアは、GNU General Public License version 3 またはそれ以降（GPL-3.0-or-later）のもとで提供されます。ライセンスの全文は、各リポジトリの LICENSE ファイル、または <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU のページ</a>で確認できます。</p>
+    <p>利用者は、次の権利を持ちます。</p>
+    <ul>
+      <li>目的を問わず、本ソフトウェアを実行すること</li>
+      <li>ソースコードを読み、改変すること</li>
+      <li>コピーを再配布すること</li>
+      <li>改変版を公開すること</li>
+    </ul>
+    <p>再配布や改変版の公開を行う場合は、GPL-3.0-or-later の条件に従い、ソースコードの提供と同じライセンスの適用が必要です。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 3 条（第三者のソフトウェア）</h2>
+    <p>本ディストリビューションには、Wayfire、Waybar、fuzzel、FFmpeg など、第三者が開発したソフトウェアが含まれます。これらには、それぞれのライセンスが適用されます。各ソフトウェアの著作権は、その開発者に帰属します。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 4 条（保証の否認）</h2>
+    <p>本ソフトウェアおよび本ディストリビューションは、現状のまま（AS IS）で提供されます。商品性、特定目的への適合性、第三者の権利を侵害しないことについて、明示または黙示のいかなる保証もありません。</p>
+    <p>本ソフトウェアの品質、性能、安全性、動作の正確さについても、開発者は保証しません。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 5 条（責任の制限）</h2>
+    <p>本ソフトウェアの利用または利用できないことから生じた損害（データの消失、機器の故障、業務の中断、その他の損害を含む）について、開発者および貢献者は、法律上認められる範囲で責任を負いません。</p>
+    <p>本ディストリビューションをインストールする前に、重要なデータのバックアップを取ってください。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 6 条（名称と商標）</h2>
+    <p>「Norrsken Linux」「Aurore」「ALBA Linux」などの名称は、本プロジェクトの識別のために使用しています。第三者が公式であるかのように誤認させる形で使用することはご遠慮ください。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 7 条（規約の変更）</h2>
+    <p>この規約は、必要に応じて変更することがあります。変更後は、このページに新しい日付を掲載します。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 8 条（準拠法と管轄）</h2>
+    <p>本規約の解釈および適用は、日本法に準拠します。</p>
+    <p>本規約に関して紛争が生じた場合は、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+  </section>
+
+  <section class="card">
+    <h2>第 9 条（お問い合わせ）</h2>
+    <p>規約の内容について質問がある場合は、GitHub の各リポジトリの Issue から連絡してください。</p>
+  </section>
+</main>
+
+<footer>
+  <div>Norrsken Linux ・ GPL-3.0-or-later ・ Designed in Myou+2</div>
+  <div><a href="index.html">トップへ戻る</a></div>
+</footer>
+
+</body>
