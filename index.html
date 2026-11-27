@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurore ・ Norrsken Linux</title>
+<style>
+  /* Myou+2: Material 2 と 3 の中間デザイン */
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #1f1f1f;
+    --muted: #5f6368;
+    --accent: #0b57d0;
+    --accent-bg: #d3e3fd;
+    --accent-text: #041e49;
+    --accent-hover: #c2d7fb;
+    --fab: #f2a6a6;
+    --fab-hover: #e89494;
+    --code-bg: #1f2327;
+    --code-text: #e8f3ec;
+    --header-bg: rgba(255,255,255,0.85);
+    --aurora-1: rgba(11,87,208,0.22);
+    --aurora-2: rgba(143,209,158,0.28);
+    --aurora-3: rgba(242,166,166,0.30);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-2: 0 4px 16px rgba(0,0,0,0.10), 0 12px 32px rgba(0,0,0,0.08);
+    color-scheme: light;
+  }
+
+  /* ダークテーマ（OS の設定に合わせる） */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121417;
+      --card: #1d2125;
+      --text: #e6e8eb;
+      --muted: #9aa0a6;
+      --accent: #8ab4f8;
+      --accent-bg: #2a3f5f;
+      --accent-text: #d3e3fd;
+      --accent-hover: #34507a;
+      --fab: #c9787a;
+      --fab-hover: #d88a8c;
+      --code-bg: #0b0d0f;
+      --code-text: #e8f3ec;
+      --header-bg: rgba(29,33,37,0.85);
+      --aurora-1: rgba(138,180,248,0.18);
+      --aurora-2: rgba(143,209,158,0.16);
+      --aurora-3: rgba(242,166,166,0.14);
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+      --shadow-2: 0 4px 16px rgba(0,0,0,0.5), 0 12px 32px rgba(0,0,0,0.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --card: #1d2125;
+    --text: #e6e8eb;
+    --muted: #9aa0a6;
+    --accent: #8ab4f8;
+    --accent-bg: #2a3f5f;
+    --accent-text: #d3e3fd;
+    --accent-hover: #34507a;
+    --fab: #c9787a;
+    --fab-hover: #d88a8c;
+    --code-bg: #0b0d0f;
+    --code-text: #e8f3ec;
+    --header-bg: rgba(29,33,37,0.85);
+    --aurora-1: rgba(138,180,248,0.18);
+    --aurora-2: rgba(143,209,158,0.16);
+    --aurora-3: rgba(242,166,166,0.14);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-2: 0 4px 16px rgba(0,0,0,0.5), 0 12px 32px rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, "Noto Sans JP", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- ヘッダー ---- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-1);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand { font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
+  .brand span { color: var(--accent); }
+  nav a {
+    color: var(--accent-text);
+    background: var(--accent-bg);
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  nav a:hover { background: var(--accent-hover); }
+
+  /* ---- ヒーロー（オーロラ風の背景） ---- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 24px 88px;
+    text-align: center;
+    background:
+      radial-gradient(60% 80% at 20% 0%, var(--aurora-1), transparent 70%),
+      radial-gradient(50% 70% at 80% 10%, var(--aurora-2), transparent 70%),
+      radial-gradient(40% 60% at 55% 100%, var(--aurora-3), transparent 70%),
+      var(--bg);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 600;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, #0b57d0, #3d9a6a, #e07b7b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .chip {
+    background: var(--card);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    box-shadow: var(--shadow-1);
+  }
+
+  /* ---- プロジェクト ---- */
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 24px 24px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--shadow-1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-size: 22px; font-weight: 600; margin: 0 0 6px; }
+  .tag { color: var(--accent); font-size: 14px; font-weight: 500; margin: 0 0 16px; }
+  .card p { margin: 0 0 12px; }
+  .muted { color: var(--muted); font-size: 14px; }
+  .label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 20px 0 8px;
+  }
+  pre {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 16px 18px;
+    border-radius: 16px;
+    overflow-x: auto;
+    font-size: 13px;
+    margin: 0;
+  }
+  code { font-family: ui-monospace, "JetBrains Mono", monospace; }
+
+  .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-block;
+    background: var(--fab);
+    color: #1f1f1f;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn:hover { background: var(--fab-hover); }
+  .btn-tonal {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-block;
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .btn-tonal:hover { background: var(--accent-hover); }
+
+  /* ---- フッター ---- */
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 48px 24px 32px;
+  }
+  footer .credit { margin-top: 6px; color: var(--text); font-weight: 500; }
+
+  @media (max-width: 520px) {
+    header { padding: 14px 20px; }
+    .grid { grid-template-columns: 1fr; }
+    .card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Aurore <span>・ Norrsken Linux</span></div>
+  <nav><a href="#projects">プロジェクト</a></nav>
+</header>
+
+<section class="hero">
+  <h1><span>Norrsken Linux</span></h1>
+  <p>Arch Linux をベースにした、軽量なデスクトップです。デスクトップ環境の Aurore と、そのための小さなアプリを GitHub で公開しています。</p>
+  <div class="chips">
+    <span class="chip">Arch Linux ベース</span>
+    <span class="chip">Wayfire ・ Waybar</span>
+    <span class="chip">Rust で書かれたアプリ</span>
+    <span class="chip">GPL-3.0-or-later</span>
+  </div>
+</section>
+
+<main id="projects">
+  <p class="section-title">Projects</p>
+
+  <div class="grid">
+    <article class="card">
+      <div class="card-icon">✦</div>
+      <h2>Aurore At a Glance</h2>
+      <p class="tag">Aurore のための At a Glance ・ pixel 感</p>
+      <p>pixel 感のあるデザインを目指した、Aurore 用の表示です。</p>
+      <p class="muted">動作確認はまだ行っていません。</p>
+      <a class="btn-tonal" href="https://github.com/ALBAlinux-project/Aurore-At-a-Glance">GitHub で見る</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">♪</div>
+      <h2>Aurore Player</h2>
+      <p class="tag">Norrsken Linux 向けの音声プレーヤー</p>
+      <p>mp3、flac、wav、ogg、m4a、aac を直接再生します。WMA と WMV は ffmpeg を呼び出して読み込み、一時ファイルは作りません。</p>
+
+      <div class="label">依存パッケージ（Arch Linux）</div>
+      <pre><code>sudo pacman -S gtk3 alsa-lib ffmpeg rust</code></pre>
+
+      <div class="label">ビルド</div>
+      <pre><code>git clone https://github.com/ALBAlinux-project/Aurore-player.git
+cd Aurore-player
+cargo build --release --locked
+./target/release/aurore-player</code></pre>
+
+      <div class="label">パッケージ化</div>
+      <pre><code>makepkg -si</code></pre>
+
+      <a class="btn" href="https://github.com/ALBAlinux-project/Aurore-player">GitHub で見る</a>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div>Norrsken Linux ・ GPL-3.0-or-later ・ Designed in Myou+2</div>
+  <div class="credit">Made by 猫田（ALBALinuxの中の人だよ）</div>
+</footer>
+
+</body>
+</html>
