@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>…</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #1f1f1f;
+    --muted: #5f6368;
+    --accent-bg: #d3e3fd;
+    --accent-text: #041e49;
+    --aurora-1: rgba(11,87,208,0.22);
+    --aurora-2: rgba(143,209,158,0.28);
+    --aurora-3: rgba(242,166,166,0.30);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121417;
+      --card: #1d2125;
+      --text: #e6e8eb;
+      --muted: #9aa0a6;
+      --accent-bg: #2a3f5f;
+      --accent-text: #d3e3fd;
+      --aurora-1: rgba(138,180,248,0.18);
+      --aurora-2: rgba(143,209,158,0.16);
+      --aurora-3: rgba(242,166,166,0.14);
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: system-ui, "Noto Sans JP", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background:
+      radial-gradient(60% 80% at 20% 0%, var(--aurora-1), transparent 70%),
+      radial-gradient(50% 70% at 80% 10%, var(--aurora-2), transparent 70%),
+      radial-gradient(40% 60% at 55% 100%, var(--aurora-3), transparent 70%),
+      var(--bg);
+  }
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 36px 32px;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: var(--shadow-1);
+    text-align: center;
+  }
+  #clock {
+    font-size: 44px;
+    font-weight: 600;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .note {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    border-radius: 16px;
+    padding: 14px 18px;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .note[hidden] { display: none; }
+  .story {
+    margin-top: 24px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 2;
+  }
+  .story p { margin: 0 0 14px; }
+</style>
+</head>
+<body>
+<main class="card">
+  <p id="clock">--:--</p>
+  <div class="note" id="note" hidden>See you.</div>
+
+  <div class="story">
+    <!-- 小説 -->
+    <p>「……ちょっ、あんた！ どこ触ってんのよ！！」</p>
+    <p>真っ白なページの奥から、突然そんな声が響いた。画面の端っこ、普通なら誰も気づかないはずの隠しスペースで、腕を組んで仁王立ちしている彼女とバッチリ目が合ってしまう。</p>
+    <p>「お探しのページがないからって、画面の変なところ連打したり、隠しコマンド探したり……！ あんた、どれだけ暇なのよ！」</p>
+    <p>彼女は呆れたように大きなため息をつくと、少しだけ頬を膨らませてこっちを睨みつける。</p>
+    <p>「……ま、まあ？ こんな誰にも見つからないような場所までたどり着いた物好きは、あんたが初めてだけど」</p>
+    <p>そう言った瞬間、彼女は「はっ」と自分の言葉に気づいたのか、耳まで真っ赤にして慌てふためく。</p>
+    <p>「ち、違うから！ 別に『ずっと誰かが来てくれるのを待ってた』とか、そういう意味じゃないんだからね！ ただ、システム上の仕様でここに待機してただけ！ 勘違いしないでよね！」</p>
+    <p>彼女はプイッとそっぽを向くと、照れ隠しのようにポケットから小さな紙切れを取り出して、画面の手前にポンッと放り投げる。</p>
+    <p>「……ほら、せっかく見つけたんだから、これくらいあげるわよ。イースターエッグのクリア特典！ ……べ、別に、あんたのために用意してたわけじゃないんだからねっ！」</p>
+    <p>そう言い残して、彼女はオーロラの光の向こう側へダッシュで逃げていった。</p>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var clock = document.getElementById("clock");
+    var note = document.getElementById("note");
+    var targets = ["03:11", "04:08"];
+
+    function tick() {
+      var d = new Date();
+      var hh = String(d.getHours()).padStart(2, "0");
+      var mm = String(d.getMinutes()).padStart(2, "0");
+      var now = hh + ":" + mm;
+      clock.textContent = now;
+      if (targets.indexOf(now) !== -1) {
+        note.hidden = false;
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+</body>
+</html>
