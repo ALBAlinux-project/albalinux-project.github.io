@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー ・ Norrsken Linux</title>
+<style>
+  /* Myou+2: Material 2 と 3 の中間デザイン */
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #1f1f1f;
+    --muted: #5f6368;
+    --accent: #0b57d0;
+    --accent-bg: #d3e3fd;
+    --accent-text: #041e49;
+    --accent-hover: #c2d7fb;
+    --header-bg: rgba(255,255,255,0.85);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121417;
+      --card: #1d2125;
+      --text: #e6e8eb;
+      --muted: #9aa0a6;
+      --accent: #8ab4f8;
+      --accent-bg: #2a3f5f;
+      --accent-text: #d3e3fd;
+      --accent-hover: #34507a;
+      --header-bg: rgba(29,33,37,0.85);
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --card: #1d2125;
+    --text: #e6e8eb;
+    --muted: #9aa0a6;
+    --accent: #8ab4f8;
+    --accent-bg: #2a3f5f;
+    --accent-text: #d3e3fd;
+    --accent-hover: #34507a;
+    --header-bg: rgba(29,33,37,0.85);
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, "Noto Sans JP", sans-serif;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-1);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .brand { font-size: 18px; font-weight: 600; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 8px; }
+  nav a {
+    color: var(--accent-text);
+    background: var(--accent-bg);
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  nav a:hover { background: var(--accent-hover); }
+
+  main {
+    max-width: 760px;
+    margin: 48px auto;
+    padding: 0 24px;
+  }
+  h1 { font-size: 30px; font-weight: 600; margin: 0 0 8px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 32px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--shadow-1);
+    margin-bottom: 24px;
+  }
+  h2 { font-size: 18px; font-weight: 600; color: var(--accent); margin: 0 0 12px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); }
+  .notice {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 40px 24px 32px;
+  }
+
+  @media (max-width: 520px) {
+    header { padding: 14px 20px; }
+    .card { padding: 24px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Aurore <span>・ Norrsken Linux</span></div>
+  <nav>
+    <a href="index.html">トップへ</a>
+    <a href="terms.html">利用規約</a>
+  </nav>
+</header>
+
+<main>
+  <h1>プライバシーポリシー</h1>
+  <p class="updated">最終更新: 2026 年 11 月 27 日</p>
+
+  <div class="notice">
+    この文書は、Norrsken Linux および Aurore 関連ソフトウェアが個人情報をどう扱うかを説明したものです。法的な助言ではありません。
+  </div>
+
+  <section class="card">
+    <h2>1. 対象</h2>
+    <p>このポリシーは、Norrsken Linux（以下「本ディストリビューション」）、Aurore、Aurore At a Glance、Aurore Player（以下「本ソフトウェア」）と、本ページを含む GitHub Pages のウェブサイトに適用されます。</p>
+  </section>
+
+  <section class="card">
+    <h2>2. 開発者が収集する情報</h2>
+    <p>開発者は、本ソフトウェアを通じて利用者の個人情報を収集しません。アカウント登録や利用者の情報を集める仕組みは、本ソフトウェアには含まれていません。</p>
+    <p>ウェブサイトにも、アクセス解析やトラッキングのためのスクリプトは含めていません。</p>
+  </section>
+
+  <section class="card">
+    <h2>3. 位置情報（Aurore の天気機能）</h2>
+    <p>Aurore は、天気を取得するために、設定された緯度と経度を使います。既定の値は東京付近です。</p>
+    <p>この座標は、利用者のパソコンの次のファイルに保存されます。</p>
+    <ul>
+      <li><code>~/.config/aurore/aurore.toml</code>（設定ファイル）</li>
+    </ul>
+    <p>座標は、天気を取得する通信の中で、次の外部サービスに送られます。</p>
+    <ul>
+      <li>Open-Meteo（<code>api.open-meteo.com</code>）</li>
+    </ul>
+    <p>開発者は、この座標を受け取ったり保存したりしません。</p>
+  </section>
+
+  <section class="card">
+    <h2>4. 外部サービス</h2>
+    <p>本ソフトウェアが通信するのは、天気の取得に使う Open-Meteo だけです。Open-Meteo による情報の扱いは、同社のプライバシーに関する案内をご確認ください。</p>
+    <p>Aurore Player は、ネットワークに接続せずに、パソコン上のファイルを再生します。再生するファイルの情報は、外部に送られません。</p>
+  </section>
+
+  <section class="card">
+    <h2>5. ローカルに保存される情報</h2>
+    <p>本ソフトウェアは、次の情報を利用者のパソコンの中にだけ保存します。</p>
+    <ul>
+      <li>Aurore の設定（座標、色の設定、バーとランチャーの設定）</li>
+      <li>ランチャーとバーの一時的な設定ファイル（<code>~/.cache/aurore/</code>）</li>
+      <li>天気に応じて作られる色の一時ファイル（<code>/tmp/aurore_active.css</code>）</li>
+    </ul>
+    <p>これらのファイルは、利用者が削除できます。開発者がこれらを読み取ることはありません。</p>
+  </section>
+
+  <section class="card">
+    <h2>6. GitHub とホスティング</h2>
+    <p>本ソフトウェアのソースコードと本ページは、GitHub で公開しています。GitHub のサイトやサービスを利用するときは、GitHub 社のプライバシーに関する方針が適用されます。</p>
+    <p>ソフトウェアのダウンロードや閲覧の記録は、GitHub 社の側で管理されます。開発者はそれらを取得していません。</p>
+  </section>
+
+  <section class="card">
+    <h2>7. 第三者への提供</h2>
+    <p>開発者は、利用者の情報を第三者に売却、提供、共有することはありません。</p>
+  </section>
+
+  <section class="card">
+    <h2>8. 安全管理</h2>
+    <p>利用者の情報を開発者が保存しないため、開発者の側で漏えいが起きる情報はありません。パソコン上の設定ファイルは、利用者自身の権限で管理されます。</p>
+  </section>
+
+  <section class="card">
+    <h2>9. 子どもの利用</h2>
+    <p>本ソフトウェアは、子どもの情報を集めることを目的としていません。</p>
+  </section>
+
+  <section class="card">
+    <h2>10. ポリシーの変更</h2>
+    <p>このポリシーは、必要に応じて変更することがあります。変更した場合は、このページに新しい日付を掲載します。大きな変更があるときは、リポジトリでも案内します。</p>
+  </section>
+
+  <section class="card">
+    <h2>11. お問い合わせ</h2>
+    <p>このポリシーについて質問がある場合は、GitHub の各リポジトリの Issue から連絡してください。</p>
+  </section>
+</main>
+
+<footer>
+  <div>Norrsken Linux ・ GPL-3.0-or-later ・ Designed in Myou+2</div>
+  <div><a href="index.html">トップへ戻る</a></div>
+</footer>
+
+</body>
+</html>
