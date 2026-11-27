@@ -100,6 +100,7 @@
   }
   .brand { font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
   .brand span { color: var(--accent); }
+  nav { display: flex; gap: 8px; }
   nav a {
     color: var(--accent-text);
     background: var(--accent-bg);
@@ -249,9 +250,13 @@
     padding: 48px 24px 32px;
   }
   footer .credit { margin-top: 6px; color: var(--text); font-weight: 500; }
+  footer .links { margin-top: 12px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 
   @media (max-width: 520px) {
-    header { padding: 14px 20px; }
+    header { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
+    nav a { padding: 8px 14px; }
     .grid { grid-template-columns: 1fr; }
     .card { padding: 24px; }
   }
@@ -261,7 +266,10 @@
 
 <header>
   <div class="brand">Aurore <span>・ Norrsken Linux</span></div>
-  <nav><a href="#projects">プロジェクト</a></nav>
+  <nav>
+    <a href="#projects">プロジェクト</a>
+    <a href="terms.html">利用規約</a>
+  </nav>
 </header>
 
 <section class="hero">
@@ -314,6 +322,7 @@ cargo build --release --locked
 <footer>
   <div>Norrsken Linux ・ GPL-3.0-or-later ・ Designed in Myou+2</div>
   <div class="credit">Made by 猫田（ALBALinuxの中の人だよ）</div>
+  <div class="links"><a href="terms.html">利用規約</a></div>
 </footer>
 
 </body>
